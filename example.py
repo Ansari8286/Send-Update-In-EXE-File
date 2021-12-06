@@ -94,10 +94,10 @@ class Main:
         button2 = ttk.Button(parent, text='Execute', command=run_binary)
         button2.place(x=20, y=60)
 
-        button3 = ttk.Button(parent, text='Run CMD', command=run_cmd)
+        button3 = ttk.Button(parent, text='Run Command', command=run_cmd)
         button3.place(x=20, y=100)
 
-        button4 = ttk.Button(parent, text='UpdateChecker', command=update_using_manager)
+        button4 = ttk.Button(parent, text='Update manager', command=update_using_manager)
         button4.place(x=-200, relx=1.0, y=60)
 
 
