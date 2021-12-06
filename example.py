@@ -94,7 +94,7 @@ class Main:
         button3 = ttk.Button(parent, text='Run CMD', command=run_cmd)
         button3.place(x=20, y=100)
 
-        button4 = ttk.Button(parent, text='UpdateManager', command=update_using_manager)
+        button4 = ttk.Button(parent, text='UpdateChecker', command=update_using_manager)
         button4.place(x=-200, relx=1.0, y=60)
 
 
