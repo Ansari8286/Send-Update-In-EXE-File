@@ -27,8 +27,12 @@ class Main:
                     mb1 = messagebox.askyesno('Update!', f'{_AppName_} {__version__} needs to update to version {data}')
                     if mb1 is True:
                         # -- Replace the url for your file online with the one below.
-                        webbrowser.open_new_tab('https://github.com/vsantiago113/Tkinter-MyTestApp/raw/master/'
-                                                'updates/MyTestApp.msi?raw=true')
+                        
+                        # webbrowser.open_new_tab('https://github.com/vsantiago113/Tkinter-MyTestApp/raw/master/'
+                        #                         'updates/MyTestApp.msi?raw=true')
+                        webbrowser.open_new_tab('https://github.com/Ansari8286/Send-Update-In-EXE-File/blob/master/'
+                                                'updates/example.exe?raw=true')
+
                         parent.destroy()
                     else:
                         pass
@@ -50,8 +54,7 @@ class Main:
             try:
                 # -- Online Version File
                 # -- Replace the url for your file online with the one below.
-                response = requests.get(
-                    'https://raw.githubusercontent.com/Ansari8286/Send-Update-In-EXE-File/master/version.txt')
+                response = requests.get('https://raw.githubusercontent.com/Ansari8286/Send-Update-In-EXE-File/master/version.txt')
                 data = response.text
 
                 if float(data) > float(__version__):
