@@ -4,14 +4,21 @@ from PIL import ImageTk, Image, ImageOps
 from tkinter import font
 import webbrowser
 import requests
-# import win32api
+import win32api
 import threading
+
+
+from win10toast import ToastNotifier
+
 
 __version__ = '1.0'
 
 _AppName_ = 'MyTestApp'
 
 
+
+# toaster = ToastNotifier()
+# toaster.show_toast('Update!', f'{_AppName_} {__version__} needs to update to version {data}')
 class Main:
     def __init__(self, parent):
         def check_updates():
@@ -88,17 +95,18 @@ class Main:
         # exit_button.pack(side=tk.LEFT, padx=1, pady=1)
         # exit_button.image = self._exit
 
-        button1 = ttk.Button(parent, text='Check for Updates', command=check_updates)
+        button1 = ttk.Button(parent, text='Check for Updates 1', command=check_updates)
         button1.place(relx=0.5, rely=0.5, anchor=tk.CENTER)
 
-        button2 = ttk.Button(parent, text='Execute', command=run_binary)
+        button2 = ttk.Button(parent, text='Execute 2', command=run_binary)
         button2.place(x=20, y=60)
 
-        button3 = ttk.Button(parent, text='Run Command', command=run_cmd)
+        button3 = ttk.Button(parent, text='Run Command 3', command=run_cmd)
         button3.place(x=20, y=100)
 
-        button4 = ttk.Button(parent, text='Update manager', command=update_using_manager)
+        button4 = ttk.Button(parent, text='Update manager 4', command=update_using_manager)
         button4.place(x=-200, relx=1.0, y=60)
+
 
 
 class UpdateManager(tk.Toplevel):
@@ -119,11 +127,11 @@ class UpdateManager(tk.Toplevel):
         self.title('Update Manager')
         self.wm_iconbitmap('images/Graphicloads-Android-Settings-Contact.ico')
 
-        image = Image.open('images/updatemanager.jpg')
-        photo = ImageTk.PhotoImage(image)
-        label = tk.Label(self, image=photo)
-        label.image = photo
-        label.pack()
+        # image = Image.open('images/updatemanager.jpg')
+        # photo = ImageTk.PhotoImage(image)
+        # label = tk.Label(self, image=photo)
+        # label.image = photo
+        # label.pack()
 
         def install_update():
             win32api.ShellExecute(0, 'open', f'tmp\\{_AppName_}.msi', None, None, 10)
@@ -203,6 +211,7 @@ class DisplayAboutMe(tk.Toplevel):
 
 
 def main():
+    
     root = tk.Tk()
     root.title(_AppName_ + ' ' + str(__version__))
     w = 650
@@ -216,6 +225,8 @@ def main():
     # root.wm_iconbitmap('images/Graphicloads-Android-Settings-Contact.ico')
     Main(root)
     root.mainloop()
+
+    
 
 
 # if __name__ == '__main__':
